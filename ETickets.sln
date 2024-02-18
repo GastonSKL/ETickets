@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETickets", "ETickets\ETickets.csproj", "{424344FE-C8DF-4917-9327-62FBC391372A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{424344FE-C8DF-4917-9327-62FBC391372A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{424344FE-C8DF-4917-9327-62FBC391372A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{424344FE-C8DF-4917-9327-62FBC391372A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{424344FE-C8DF-4917-9327-62FBC391372A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3B4012A0-776B-4D9F-BE97-D28F896D2C56}
+	EndGlobalSection
+EndGlobal
