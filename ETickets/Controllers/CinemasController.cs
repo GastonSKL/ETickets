@@ -17,7 +17,7 @@ namespace ETickets.Controllers
         {
             var data = await _context.Cinemas.ToListAsync();
 
-            return View();
+            return View(data);
         }
     }
 }

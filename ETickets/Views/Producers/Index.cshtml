@@ -1,8 +1,7 @@
-﻿@model IEnumerable<Actor>
-
+﻿@model IEnumerable<Producer>
 
 @{
-    ViewData["Title"] = "List of Actors";
+    ViewData["Title"] = "List of Producers";
 }
 
 <div class="row">
@@ -21,15 +20,11 @@
                 {
                     <tr>
                         <td class="align-middle" style="width: 150px;">
-                            <img class="rounded-circle" src="@item.ProfilePictureURL" alt="@item.FullName" style="max-width: 100px;"/>
+                            <img class="rounded-circle" alt="@item.FullName" src="@item.ProfilePictureURL" style="max-width: 100px;" />
                         </td>
-                        <td class="align-middle" style="width: 350px;">
-                            @Html.DisplayFor(modelItem => item.FullName)
-                        </td>
-                        <td class="align-middle" style="width: 500px;">
-                            @Html.DisplayFor(modelItem => item.Bio)
-                        </td>
-                        <td class="align-middle" >
+                        <td class="align-middle" style="width: 350px;">@Html.DisplayFor(modelItem => item.FullName)</td>
+                        <td class="align-middle" style="width: 500px;">@Html.DisplayFor(modelItem => item.Bio)</td>
+                        <td class="align-middle">
                             <div style="display: flex; gap: .4em;">
                                 <a title="Edit" class="btn-updt-sm btn-updt-app"><i class="bi bi-pencil-square"></i> </a>
                                 <a title="Preview" class="btn-updt-sm btn-updt-warning btn-updt-app-warning"><i class="bi bi-eye"></i> </a>

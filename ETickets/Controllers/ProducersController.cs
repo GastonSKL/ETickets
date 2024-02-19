@@ -15,9 +15,9 @@ namespace ETickets.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var data = await _context.Actors.ToListAsync();
+            var data = await _context.Producers.ToListAsync();
 
-            return View();
+            return View(data);
         }
     }
 }
