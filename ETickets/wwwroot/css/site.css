@@ -20,3 +20,99 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 3rem;
+    }
+}
+
+
+.btn-updt {
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #3498db;
+    border-radius: 0.6em;
+    color: #3498db;
+    cursor: pointer;
+    display: flex;
+    font-size: 1rem;
+    line-height: 1;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    width: 5em;
+    height: 2.5em;
+    align-items: center;
+    justify-content: center;
+}
+
+    .btn-updt:hover, .btn-updt:focus {
+        color: #fff !important;
+        outline: 0;
+    }
+.btn-updt-app {
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out !important;
+}
+
+    .btn-updt-app:hover {
+        box-shadow: 0 0 40px 40px #3498db inset !important;
+    }
+
+.btn-updt-danger {
+    color: #e74c3c !important;
+    border: 2px solid #e74c3c !important;
+}
+
+.btn-updt-app-danger {
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out !important;
+}
+
+    .btn-updt-app-danger:hover {
+        box-shadow: 0 0 40px 40px #e74c3c inset !important;
+    }
+
+.btn-updt-warning {
+    color: #2ecc71 !important;
+    border: 2px solid #2ecc71 !important;
+}
+
+.btn-updt-app-warning {
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out !important;
+}
+
+    .btn-updt-app-warning:hover {
+        box-shadow: 0 0 40px 40px #2ecc71 inset !important;
+    }
+
+.btn-updt-sm {
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #3498db;
+    border-radius: 0.6em;
+    color: #3498db;
+    cursor: pointer;
+    display: flex;
+    font-size: 1rem;
+    line-height: 1;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    width: 2em;
+    height: 1.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .btn-updt-sm:hover, .btn-updt-sm:focus {
+        color: #fff !important;
+        outline: 0;
+    }

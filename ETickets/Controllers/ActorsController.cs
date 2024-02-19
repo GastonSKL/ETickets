@@ -17,7 +17,7 @@ namespace ETickets.Controllers
 
             var data = _context.Actors.ToList();
 
-            return View();
+            return View(data);
         }
     }
 }
