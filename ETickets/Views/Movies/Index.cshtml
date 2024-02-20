@@ -5,54 +5,61 @@
 }
 
 <div class="row">
+    <div class="col-sm-10 offset-sm-2 movie-container" >
     @foreach(var item in Model)
     {
-        <div class="col-md-4 col-xs-6 border-primary mb-3">
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-12">
-                        <div class="card-header text-white bg-info">
-                            <p class="card-text">
-                                <h5 class="card-title">
-                                    @Html.DisplayFor(model => item.Name)
-                                    <a class="text-white float-right"> <i class="bi bi-pencil-square"></i></a>
-                                </h5>
-                            </p>
+
+            <div class="movie-item">
+                <div class="movie-left">
+                    <div class="movie-left-container">
+                        <img src="@item.ImageUrl" alt="@item.Name" class="movie-left-container-img" />
+                        <h2 class="movie-left-container-title">
+                            @Html.DisplayFor(model => item.Name)
+                        </h2>
+                        <a class="movie-left-container-link"> <i class="bi bi-pencil-square"></i></a>
+                    </div>
+                    <div class="movie-left-description">
+                        <p >@item.Description</p>
+                    </div>
+                </div>
+                <div class="movie-right">
+                    <div class="movie-right-text">
+                        <div><b>Cinema</b></div>
+                        <div>@item.Cinema</div>
+                    </div>
+                    <div class="movie-right-text">
+                        <div><b>Category</b></div>
+                        <div>@item.MovieCategory</div>
+                    </div>
+                    <div class="movie-right-text">
+                        <div><b>Start Date</b></div>
+                        <div>@item.StartDate</div>
+                    </div>
+                    <div class="movie-right-text">
+                        <div><b>End Date</b></div>
+                        <div>@item.EndDate</div>
+                    </div>
+                    <div class="movie-right-text">
+                        <div><b>Status</b></div>
+                        <div>
+                            @if (DateTime.Now >= item.StartDate && DateTime.Now <= item.EndDate)
+                            {
+                                <span class="badge bg-success text-white">AVAILABLE</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-primary text-white">UPCOMING</span>
+                            }
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <img src="@item.ImageUrl" width="100%;" alt="@item.Name"/>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card-body">
-                            <p class="card-text">Description Sample</p>
-                            <p class="card-text"><b>Cinema: </b>@item.Cinema</p>
-                            <p class="card-text"><b>Category: </b>@item.MovieCategory</p>
-                            <p class="card-text"><b>Start Date: </b>@item.StartDate</p>
-                            <p class="card-text"><b>End Date: </b>@item.EndDate</p>
-                            <p class="card-text"><b>Status: </b>
-                            @if(DateTime.Now >= item.StartDate && DateTime.Now <= item.EndDate)
-                                {
-                                    <span class="badge bg-success text-white">AVAILABLE</span>
-                                }else
-                                {
-                                    <span class="badge bg-primary text-white">UPCOMING</span>
-                                }
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="card-footer">
-                            <p class="card-text">
-                                <a class="btn btn-outline-primary float-right"><i class="bi bi-eye-fill"></i> Show Details</a>
-                                <a class="btn btn-outline-primary float-right"><i class="bi bi-cart-plus"></i> Add to Cart ($X.XX)</a>
-                            </p>
-                        </div>
+                    <div class="movie-right-buttons">
+                        <button class="btn btn-primary"><i class="bi bi-eye-fill"></i> </button>
+                        <button class="btn btn-secondary "><i class="bi bi-cart-plus"></i> ($@item.Price)</button>
                     </div>
                 </div>
             </div>
-        </div>
     }
+        </div>
     @* <div class="col-md-8 offset-md-2">
         <table class="table table-hover">
             <thead>
