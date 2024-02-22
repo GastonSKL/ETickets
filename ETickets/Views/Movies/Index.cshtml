@@ -25,7 +25,7 @@
                 <div class="movie-right">
                     <div class="movie-right-text">
                         <div><b>Cinema</b></div>
-                        <div>@item.Cinema</div>
+                        <div>@item.Cinema.Name</div>
                     </div>
                     <div class="movie-right-text">
                         <div><b>Category</b></div>
@@ -33,11 +33,11 @@
                     </div>
                     <div class="movie-right-text">
                         <div><b>Start Date</b></div>
-                        <div>@item.StartDate</div>
+                        <div>@item.StartDate.ToString("dd MMM yy")</div>
                     </div>
                     <div class="movie-right-text">
                         <div><b>End Date</b></div>
-                        <div>@item.EndDate</div>
+                        <div>@item.EndDate.ToString("dd MMM yy")</div>
                     </div>
                     <div class="movie-right-text">
                         <div><b>Status</b></div>
@@ -45,6 +45,10 @@
                             @if (DateTime.Now >= item.StartDate && DateTime.Now <= item.EndDate)
                             {
                                 <span class="badge bg-success text-white">AVAILABLE</span>
+                            }
+                            else if(DateTime.Now > item.EndDate)
+                            {
+                                <span class="badge bg-danger text-white">EXPIRED</span>
                             }
                             else
                             {
@@ -54,7 +58,7 @@
                     </div>
                     <div class="movie-right-buttons">
                         <button class="btn btn-primary"><i class="bi bi-eye-fill"></i> </button>
-                        <button class="btn btn-secondary "><i class="bi bi-cart-plus"></i> ($@item.Price)</button>
+                        <button class="btn btn-secondary "><i class="bi bi-cart-plus"></i>(@item.Price.ToString("c"))</button>
                     </div>
                 </div>
             </div>

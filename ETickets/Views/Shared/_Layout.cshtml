@@ -7,45 +7,130 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ETickets.styles.css" asp-append-version="true" />
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="~/Content/basicStyles.css" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ETickets</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+    
+    <div class="wrapper">
+        <aside id="sidebar">
+            <div class="d-flex">
+                <button class="toggle-btn" type="button">
+                    <div class="pro-sidebar-logo">
+                        <div>M</div>
+                        <h5>ovies U</h5>
+                    </div>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                
+            </div>
+            <ul class="sidebar-nav">
+                @if (ViewContext.RouteData.Values["controller"].ToString().Equals("Movies", StringComparison.OrdinalIgnoreCase) && ViewContext.RouteData.Values["action"].ToString().Equals("Index", StringComparison.OrdinalIgnoreCase))
+                {
+                    <li class="sidebar-item">
+                        <form id="movieSearch" asp-controller="Movies" asp-action="Filter">
+                            <input name="searchString" type="text" placeholder="Search" onkeyup="submit"  />
+                            <button class="btn btn-secondary btn-sm search-button">Search</button>
+                        </form>
+                    </li>
+                }
+                <li class="side-bar-title">
+                    General
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" asp-area="" asp-controller="Movies" asp-action="Index">
+                        <i class="lni lni-video"></i>
+                        <span>Movies</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                       data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
+                        <i class="lni lni-control-panel"></i>
+                        <span>Managment</span>
+                    </a>
+                    <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item ">
+                            <a asp-area="" asp-controller="Cinemas" asp-action="Index" class="sidebar-link sidebar-subitem">Cinemas</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <li class="sidebar-item ">
+                            <a asp-area="" asp-controller="Producers" asp-action="Index" class="sidebar-link sidebar-subitem">Producers</a>
+                        </li>
+                        <li class="sidebar-item ">
+                            <a asp-area="" asp-controller="Actors" asp-action="Index" class="sidebar-link sidebar-subitem">Actors</a>
                         </li>
                     </ul>
-                </div>
+                </li>
+                
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                       data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
+                        <i class="lni lni-users"></i>
+                        <span>Admin</span>
+                    </a>
+                    <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link collapsed sidebar-subitem" data-bs-toggle="collapse"
+                               data-bs-target="#multi-two" aria-expanded="false" aria-controls="multi-two" >
+                                Two Links
+                            </a>
+                            <ul id="multi-two" class="sidebar-dropdown list-unstyled collapse">
+                                <li class="sidebar-item sidebar-sub-subitem">
+                                    <a href="#" class="sidebar-link">Link 1</a>
+                                </li>
+                                <li class="sidebar-item sidebar-sub-subitem">
+                                    <a href="#" class="sidebar-link">Link 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+               
+            </ul>
+            <div class="sidebar-footer">
+                <a href="#" class="sidebar-link">
+                    <i class="lni lni-exit"></i>
+                    <span>Logout</span>
+                </a>
             </div>
-        </nav>
-    </header>
-    <div class="container-fluid">
-        <main role="main" class="pb-3">
+            <div class="sidebar-footer">
+                <a class="sidebar-link" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="lni lni-home"></i>
+                    <span>Home</span>
+                </a>
+            </div>
+        </aside>
+        <main role="main" class="pb-3 pt-5">
             @RenderBody()
         </main>
+        <footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2024 - ETickets - <a href="github.com/gastonskl">Carlos Gaston Lucero Skamlec</a>
+            </div>
+        </footer>
     </div>
+    @* </header> *@
+    
+        
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - ETickets - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+<script>
+
+    const hamBurger = document.querySelector(".toggle-btn");
+
+    hamBurger.addEventListener("click", function () {
+        document.querySelector("#sidebar").classList.toggle("expand");
+    });
+
+        function submitForm(event) {
+            event.preventDefault();
+            document.getElementById('movieSearch').submit();
+        }
+</script>
